@@ -1,0 +1,53 @@
+<head>
+  <title>chessBoard</title>
+</head>
+
+<body>
+  <div id="stats">
+    <ul>
+      <li><span class="option-title">Turn</span> - <span id="turn"></span></li>
+      <li><button type='button' id="undo-button">Undo</button></li>
+      <li>Human vs
+        <select id="vs">
+        <option value="human" selected>Human</option>
+        </select>
+      </li>
+
+      <li>Promotion -
+        <select id="promotion">
+          <option value="q" selected>Queen</option>
+          <option value="r">Rook</option>
+          <option value="n">Knight</option>
+          <option value="b">Bishop</option>
+        </select>
+      </li>   
+      <li>
+        <span class="option-title">Dead</span>
+        <ul id="dead"></ul>
+      </li>
+    </ul>
+  </div>
+  <div id="outer">
+    {{> chess}}
+  </div>
+</body>
+
+<template name="hello">
+  <h1>Hello World!</h1>
+  {{greeting}}
+  <input type="button" value="Click" />
+</template>
+
+<template name="chess">
+  <div id="chess">
+	  {{#each games}}
+	  	{{> game_item}}
+	  {{/each}}
+  </div>
+</template>
+
+<template name="game_item">
+  <div id="board">
+	  {{board}}
+  </div>
+</template>
